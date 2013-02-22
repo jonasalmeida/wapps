@@ -155,7 +155,7 @@ wApps={
 		var appDiv=[];
 		for(var i in apps){
 			appDiv[i] = $('<div id="wApp_'+i+'">').appendTo(div);
-			appDiv[i].html('<input type="checkbox" id="wAppCheckBox_'+i+'"> '+i+') <a href="'+wApps.manifest.apps[i].url+'" target=_blank>'+wApps.manifest.apps[i].name+'</a>,<small> by <i><a href="'+wApps.manifest.authors[wApps.manifest.indexAuthors[wApps.manifest.apps[i].author]].url+'" target=_blank>'+wApps.manifest.apps[i].author+'</a></i> [<a href="https://wapps.googlecode.com/git/disqus.html?'+wApps.manifest.apps[i].name+'" target=_blank><image src="http://wapps.googlecode.com/git/disqus-logo.png" width=40></a>]</small><p><i>'+wApps.manifest.apps[i].description+'</i></p>');
+			appDiv[i].html('<input type="checkbox" id="wAppCheckBox_'+i+'"> '+i+') <a href="'+wApps.manifest.apps[i].url+'" target=_blank>'+wApps.manifest.apps[i].name+'</a>,<small> by <i><a href="'+wApps.manifest.authors[wApps.manifest.indexAuthors[wApps.manifest.apps[i].author]].url+'" target=_blank>'+wApps.manifest.apps[i].author+'</a></i> [<a href="https://wapps.googlecode.com/git/disqus.html?'+wApps.manifest.apps[i].name+'" target=_blank><image src="https://wapps.googlecode.com/git/disqus-logo.png" width=40></a>]</small><p><i>'+wApps.manifest.apps[i].description+'</i></p>');
 			if(wApps.manifest.myApps[i]){$('#wAppCheckBox_'+i)[0].checked=true};
 			$('#wAppCheckBox_'+i).click(function(){wApps.getChecked(this)});
 		}
@@ -189,7 +189,7 @@ wApps={
 	getParms:function(){ // extract parameters concatenated with URL 
 		var parms = document.location.search.slice(1).split('&').map(function(s){return s.split('=')});
 		this.parms={}; // store them in wApps.parms
-		for( var i in parms){if(parms[i][0].length>0){this.parms[parms[i][0]]=parms[i][1]}};
+		for(var i=0;i<parms.length;i++){if(parms[i][0].length>0){this.parms[parms[i][0]]=parms[i][1]}};
 	},
 
 	getChecked:function(that){
