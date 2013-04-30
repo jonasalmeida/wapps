@@ -220,6 +220,11 @@ wApps={
 		// $('#wAppCheckBox_2').click() <--- how to click and unclick programatically
 	},
 
+	receiveMessage:function(event){
+		var msg = event.data;
+		console.log(msg);
+	},
+
 	manifest:{ // some of these will be filled in from the manifest
 		brand:{pic:'',url:''},
 		tabs:[],
@@ -231,6 +236,10 @@ wApps={
 		loadApps:[] // prepopulation of myApps
 	}
 }
+
+// listen when spoken to
+
+window.addEventListener("message", wApps.receiveMessage, false);
 
 // ini
 //wApps.load('http://localhost:8888/wapps/manifest.json');
