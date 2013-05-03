@@ -222,7 +222,8 @@ wApps={
 
 	receiveMessage:function(event){
 		var msg = event.data;
-		console.log(msg);
+		// handle the message
+		console.log('wapp heard:'+msg);
 	},
 
 	manifest:{ // some of these will be filled in from the manifest

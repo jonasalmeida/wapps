@@ -1,7 +1,7 @@
 // login wApp
-console.log('login for wApp');
+console.log('login Goog for wApp');
 
-login={
+loginGoogle={
 	//getAssessToken:function(){
 	//	this.access_token=document.location.href.match(/access_token=([^&]+)/)[1];
 	//	$('<i class="icon-plus-sign"></i>').appendTo($("#login"));
@@ -9,13 +9,13 @@ login={
 	ini:function(){ // have the body start with login.ini()
 		var ak = document.location.href.match(/access_token=([^&]+)/);
 		if(!!ak){
-			login.access_token=ak[1];
+			this.access_token=ak[1];
 			$('<a id="showLogin" href=#><i class="icon-plus-sign"></i></a><a id="hideLogin" href=#><i class="icon-minus-sign"></i></a><p id="userInfo"></p>').appendTo($("#login"));
-			$('#showLogin').click(function(){login.showLogin()});
-			$('#hideLogin').click(function(){login.hideLogin()});
-			$.get('https://www.googleapis.com/oauth2/v1/userinfo?access_token='+login.access_token,function(x){
-				login.userInfo=x;
-				login.userInfoUI();
+			$('#showLogin').click(function(){loginGoogle.showLogin()});
+			$('#hideLogin').click(function(){loginGoogle.hideLogin()});
+			$.get('https://www.googleapis.com/oauth2/v1/userinfo?access_token='+this.access_token,function(x){
+				loginGoogle.userInfo=x;
+				loginGoogle.userInfoUI();
 				$('#showLogin').click();
 
 			})
@@ -23,12 +23,12 @@ login={
 	},
 
 	userInfoUI:function(){
-		$('#userInfo').html(JSON.stringify(login.userInfo));
+		$('#userInfo').html(JSON.stringify(this.userInfo));
 
 	},
 
 	showLogin:function(){
-		console.log('show login');
+		//console.log('show login');
 		$('#showLogin').hide();
 		$('#hideLogin').show();
 		$('#userInfo').show();
@@ -36,7 +36,7 @@ login={
 	},
 
 	hideLogin:function(){
-		console.log('hide login');
+		//console.log('hide login');
 		$('#hideLogin').hide();
 		$('#showLogin').show();
 		$('#userInfo').hide();
@@ -44,8 +44,18 @@ login={
 	},
 
 	receiveMessage:function(event){
-		x = event.data;
-		console.log(x);
+		var parm = event.data, res;
+		console.log('FT heard: '+parm);
+		// handle the message, it should specify what part of the login object is wanted
+		if(!this[parm]){
+			res=NaN;
+		}
+		else{
+			if(typeof(this[parm])=='function'){res=(this[parm]).toString()}
+			else{res=this[parm]};
+		}
+		console.log('FT responded: ',res);
+		this.sendMessage(res);
 	},
 
 	sendMessage:function(msg,target){
@@ -56,7 +66,7 @@ login={
 }
 
 // listening if talked to
-window.addEventListener("message", login.receiveMessage, false);
+window.addEventListener("message", loginGoogle.receiveMessage, false);
 //window.parent.postMessage("ole","*"); // talking back
 
 // ini
