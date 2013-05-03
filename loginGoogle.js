@@ -47,15 +47,15 @@ loginGoogle={
 		var parm = event.data, res;
 		console.log('FT heard: '+parm);
 		// handle the message, it should specify what part of the login object is wanted
-		if(!this[parm]){
+		if(!loginGoogle[parm]){
 			res=NaN;
 		}
 		else{
-			if(typeof(this[parm])=='function'){res=(this[parm]).toString()}
-			else{res=this[parm]};
+			if(typeof(loginGoogle[parm])=='function'){res=(loginGoogle[parm]).toString()}
+			else{res=loginGoogle[parm]};
 		}
 		console.log('FT responded: ',res);
-		this.sendMessage(res);
+		loginGoogle.sendMessage(res);
 	},
 
 	sendMessage:function(msg,target){
