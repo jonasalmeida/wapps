@@ -1,6 +1,5 @@
 console.log('wApp :-)')
 
-
 wApps={
 
 	uid:function(prefix){
@@ -222,8 +221,7 @@ wApps={
 
 	receiveMessage:function(event){
 		var msg = event.data;
-		// handle the message
-		console.log('wapp heard:',msg);
+		wApps.receiveMessage.callback(msg);
 	},
 
 	manifest:{ // some of these will be filled in from the manifest
@@ -239,8 +237,8 @@ wApps={
 }
 
 // listen when spoken to
-
 window.addEventListener("message", wApps.receiveMessage, false);
+wApps.receiveMessage.callback=function(x){console.log('message received: ',x)}; // console it by default
 
 // ini
 //wApps.load('http://localhost:8888/wapps/manifest.json');

@@ -1,5 +1,5 @@
 // login wApp
-console.log('login Goog for wApp');
+console.log('wApp Google login :-)');
 
 loginGoogle={
 	//getAssessToken:function(){
