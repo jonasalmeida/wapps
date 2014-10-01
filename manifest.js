@@ -62,7 +62,7 @@ wApps.manifest.apps.push(
     {
     "name": "TCGA toolbox",
     "description": "VAlex's TCGA Toolbox in a iframe",
-    "url": "https://code.google.com/p/jmat/", // home page of App
+    "url": "https://github.com/tcga/Toolbox", // home page of App
     "author":"Alexander Gruneberg",
     "namespace":'TCGA',
     buildUI:function(id){
