@@ -35,7 +35,7 @@ wApps.manifest.apps.push(
     {
     "name": "QMachine",
     "description": "QMachine volunteer",
-    "url": "http://v1.qmachine.org",
+    "url": "https://www.qmachine.org/",
     "author":"Sean Wilkinson",
     "namespace":'QM',
     buildUI:function(id){
@@ -76,7 +76,7 @@ wApps.manifest.apps.push(
     {
     "name": "Kinomics toolbox",
     "description": "Kinomics toolbox under development",
-    "url": "http://adussaq.github.com/kinomicDataQC/",
+    "url": "https://adussaq.github.com/kinomicDataQC/",
     "author":"Alex Dussaq",
     "namespace":'QM',
     buildUI:function(id){
