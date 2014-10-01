@@ -68,7 +68,7 @@ wApps.manifest.apps.push(
     buildUI:function(id){
         this.require('', // script needed to volunteer compute cycles to QM
             function(){
-                $('#'+id).html('<p>Unlike QMachine, it may make sense to keep this one in a iframe</p><iframe width=100% height=800 src="http://tcga.github.com" seamless="seamless" />');
+                $('#'+id).html('<p>Unlike QMachine, it may make sense to keep this one in a iframe</p><iframe width=100% height=800 src="https://tcga.github.io" seamless="seamless" />');
             });
         }
     },
