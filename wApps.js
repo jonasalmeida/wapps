@@ -80,6 +80,11 @@ wApps={
 		wApps.loadMyApps();
 		wApps.buildPeople();
 		//$('#wAppsTabsA_Store').click(wApps.buildStore)
+
+		if(JSON.parse(localStorage.myWApps).length==0){
+			console.log('open the store')
+			wAppsTabsA_Store.click()
+		}
 	},
 
 	find:function(x,xx){ // find x in array xx
@@ -242,3 +247,4 @@ wApps.receiveMessage.callback=function(x){console.log('message received: ',x)}; 
 
 // ini
 //wApps.load('http://localhost:8888/wapps/manifest.json');
+
